@@ -119,9 +119,9 @@ CREATE TABLE movies (
 
 CREATE TABLE actors (
     id INTEGER AUTOINCREMENT,
-    actor_name TEXT,
-    character_name TEXT,
-    movie_title TEXT
+    movie_title TEXT,
+    character TEXT,
+    actor_name TEXT
 );
 
 CREATE TABLE studios (
@@ -133,7 +133,56 @@ CREATE TABLE studios (
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
+INSERT INTO movies (movie_title, year, rating, studio)
+VALUES ("Batman Begins", 2005, "PG-13", "Warner Bros.");
 
+INSERT INTO movies (movie_title, year, rating, studio)
+VALUES ("The Dark Knight", 2008, "PG-13", "Warner Bros.");
+
+INSERT INTO movies (movie_title, year, rating, studio)
+VALUES ("The Dark Knight Rises", 2012, "PG-13", "Warner Bros.");
+
+INSERT INTO actors (movie_title, character, actor_name,)
+VALUES ("Batman Begins", "Christian Bale", "Bruce Wayne");
+
+INSERT INTO actors (movie_title, character, actor_name,)
+VALUES ("Batman Begins", "Michael Cane", "Alfred");
+
+INSERT INTO actors (movie_title, character, actor_name,)
+VALUES ("Batman Begins", "Liam Neeson", "Ra's Al Gul");
+
+INSERT INTO actors (movie_title, character, actor_name,)
+VALUES ("Batman Begins", "Katie Holmes", "Rachel Dawes");
+
+INSERT INTO actors (movie_title, character, actor_name,)
+VALUES ("Batman Begins", "Gary Oldman", "Commissioner Gordon");
+
+INSERT INTO actors (movie_title, character, actor_name,)
+VALUES ("The Dark Knight", "Heath Ledger", "Joker");
+
+INSERT INTO actors (movie_title, character, actor_name,)
+VALUES ("The Dark Knight", "Aaron Eckhart", "Harvey Dent");
+
+INSERT INTO actors (movie_title, character, actor_name,)
+VALUES ("The Dark Knight", "Michael Cane", "Alfred");
+
+INSERT INTO actors (movie_title, character, actor_name,)
+VALUES ("The Dark Knight", "Maggie Gyllenhaal", "Rachel Dawes");
+
+INSERT INTO actors (movie_title, character, actor_name,)
+VALUES ("The Dark Knight Rises", "Christian Bale", "Bruce Wayne");
+
+INSERT INTO actors (movie_title, character, actor_name,)
+VALUES ("The Dark Knight Rises", "Tom Hardy", "Bane");
+
+INSERT INTO actors (movie_title, character, actor_name,)
+VALUES ("The Dark Knight Rises", "Joseph Gordon-Levitt", "John Blake");
+
+INSERT INTO actors (movie_title, character, actor_name,)
+VALUES ("The Dark Knight Rises", "Anne Hathaway", "Selina Kyle");
+
+INSERT INTO studios (studio)
+VALUES ("Warner Bros.");
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -142,6 +191,8 @@ CREATE TABLE studios (
 
 -- The SQL statement for the movies output
 -- TODO!
+
+SELECT 
 
 -- Prints a header for the cast output
 .print ""
