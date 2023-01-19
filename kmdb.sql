@@ -114,72 +114,72 @@ CREATE TABLE movies (
     movie_title TEXT,
     year INTEGER,
     rating text,
-    studio text
+    studio_id text
 );
 
 CREATE TABLE actors (
     id INTEGER AUTOINCREMENT,
-    movie_title TEXT,
+    movie_id integer,
     character TEXT,
     actor_name TEXT
 );
 
 CREATE TABLE studios (
     id INTEGER AUTOINCREMENT,
-    studio TEXT
+    studio TEXT,
 );
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
-INSERT INTO movies (movie_title, year, rating, studio)
-VALUES ("Batman Begins", 2005, "PG-13", "Warner Bros.");
+INSERT INTO movies (movie_title, year, rating, studio_id)
+VALUES ("Batman Begins", 2005, "PG-13", 1);
 
-INSERT INTO movies (movie_title, year, rating, studio)
-VALUES ("The Dark Knight", 2008, "PG-13", "Warner Bros.");
+INSERT INTO movies (movie_title, year, rating, studio_id)
+VALUES ("The Dark Knight", 2008, "PG-13", 1);
 
-INSERT INTO movies (movie_title, year, rating, studio)
-VALUES ("The Dark Knight Rises", 2012, "PG-13", "Warner Bros.");
+INSERT INTO movies (movie_title, year, rating, studio_id)
+VALUES ("The Dark Knight Rises", 2012, "PG-13", 1);
 
-INSERT INTO actors (movie_title, character, actor_name,)
-VALUES ("Batman Begins", "Christian Bale", "Bruce Wayne");
+INSERT INTO actors (movie_id, character, actor_name,)
+VALUES (1, "Christian Bale", "Bruce Wayne");
 
-INSERT INTO actors (movie_title, character, actor_name,)
-VALUES ("Batman Begins", "Michael Cane", "Alfred");
+INSERT INTO actors (movie_id, character, actor_name,)
+VALUES (, "Michael Cane", "Alfred");
 
-INSERT INTO actors (movie_title, character, actor_name,)
-VALUES ("Batman Begins", "Liam Neeson", "Ra's Al Gul");
+INSERT INTO actors (movie_id, character, actor_name,)
+VALUES (1, "Liam Neeson", "Ra's Al Gul");
 
-INSERT INTO actors (movie_title, character, actor_name,)
-VALUES ("Batman Begins", "Katie Holmes", "Rachel Dawes");
+INSERT INTO actors (movie_id, character, actor_name,)
+VALUES (1, "Katie Holmes", "Rachel Dawes");
 
-INSERT INTO actors (movie_title, character, actor_name,)
-VALUES ("Batman Begins", "Gary Oldman", "Commissioner Gordon");
+INSERT INTO actors (movie_id, character, actor_name,)
+VALUES (1, "Gary Oldman", "Commissioner Gordon");
 
-INSERT INTO actors (movie_title, character, actor_name,)
-VALUES ("The Dark Knight", "Heath Ledger", "Joker");
+INSERT INTO actors (movie_id, character, actor_name,)
+VALUES (2, "Heath Ledger", "Joker");
 
-INSERT INTO actors (movie_title, character, actor_name,)
-VALUES ("The Dark Knight", "Aaron Eckhart", "Harvey Dent");
+INSERT INTO actors (movie_id, character, actor_name,)
+VALUES (2, "Aaron Eckhart", "Harvey Dent");
 
-INSERT INTO actors (movie_title, character, actor_name,)
-VALUES ("The Dark Knight", "Michael Cane", "Alfred");
+INSERT INTO actors (movie_id, character, actor_name,)
+VALUES (2, "Michael Cane", "Alfred");
 
-INSERT INTO actors (movie_title, character, actor_name,)
-VALUES ("The Dark Knight", "Maggie Gyllenhaal", "Rachel Dawes");
+INSERT INTO actors (movie_id, character, actor_name,)
+VALUES (2, "Maggie Gyllenhaal", "Rachel Dawes");
 
-INSERT INTO actors (movie_title, character, actor_name,)
-VALUES ("The Dark Knight Rises", "Christian Bale", "Bruce Wayne");
+INSERT INTO actors (movie_id, character, actor_name,)
+VALUES (3, "Christian Bale", "Bruce Wayne");
 
-INSERT INTO actors (movie_title, character, actor_name,)
-VALUES ("The Dark Knight Rises", "Tom Hardy", "Bane");
+INSERT INTO actors (movie_id, character, actor_name,)
+VALUES (3, "Tom Hardy", "Bane");
 
-INSERT INTO actors (movie_title, character, actor_name,)
-VALUES ("The Dark Knight Rises", "Joseph Gordon-Levitt", "John Blake");
+INSERT INTO actors (movie_id, character, actor_name,)
+VALUES (3, "Joseph Gordon-Levitt", "John Blake");
 
-INSERT INTO actors (movie_title, character, actor_name,)
-VALUES ("The Dark Knight Rises", "Anne Hathaway", "Selina Kyle");
+INSERT INTO actors (movie_id, character, actor_name,)
+VALUES (3, "Anne Hathaway", "Selina Kyle");
 
 INSERT INTO studios (studio)
 VALUES ("Warner Bros.");
@@ -192,7 +192,12 @@ VALUES ("Warner Bros.");
 -- The SQL statement for the movies output
 -- TODO!
 
-SELECT 
+SELECT movie_title, year, studio
+FROM movies
+INNER JOIN studios
+ON movies.studio_id = studios.id
+ORDER BY year DESC
+;
 
 -- Prints a header for the cast output
 .print ""
