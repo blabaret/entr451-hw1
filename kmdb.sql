@@ -98,6 +98,7 @@
 -- Turns column mode on but headers off
 .mode column
 .headers off
+.width 20 20 20 20
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
@@ -118,15 +119,15 @@ CREATE TABLE movies (
 );
 
 CREATE TABLE actors (
-    id INTEGER AUTOINCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     movie_id integer,
     character TEXT,
     actor_name TEXT
 );
 
 CREATE TABLE studios (
-    id INTEGER AUTOINCREMENT,
-    studio TEXT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    studio TEXT
 );
 
 -- Insert data into your database that reflects the sample data shown above
@@ -142,43 +143,43 @@ VALUES ("The Dark Knight", 2008, "PG-13", 1);
 INSERT INTO movies (movie_title, year, rating, studio_id)
 VALUES ("The Dark Knight Rises", 2012, "PG-13", 1);
 
-INSERT INTO actors (movie_id, character, actor_name,)
+INSERT INTO actors (movie_id, character, actor_name)
 VALUES (1, "Christian Bale", "Bruce Wayne");
 
-INSERT INTO actors (movie_id, character, actor_name,)
-VALUES (, "Michael Cane", "Alfred");
+INSERT INTO actors (movie_id, character, actor_name)
+VALUES (1, "Michael Cane", "Alfred");
 
-INSERT INTO actors (movie_id, character, actor_name,)
+INSERT INTO actors (movie_id, character, actor_name)
 VALUES (1, "Liam Neeson", "Ra's Al Gul");
 
-INSERT INTO actors (movie_id, character, actor_name,)
+INSERT INTO actors (movie_id, character, actor_name)
 VALUES (1, "Katie Holmes", "Rachel Dawes");
 
-INSERT INTO actors (movie_id, character, actor_name,)
+INSERT INTO actors (movie_id, character, actor_name)
 VALUES (1, "Gary Oldman", "Commissioner Gordon");
 
-INSERT INTO actors (movie_id, character, actor_name,)
+INSERT INTO actors (movie_id, character, actor_name)
 VALUES (2, "Heath Ledger", "Joker");
 
-INSERT INTO actors (movie_id, character, actor_name,)
+INSERT INTO actors (movie_id, character, actor_name)
 VALUES (2, "Aaron Eckhart", "Harvey Dent");
 
-INSERT INTO actors (movie_id, character, actor_name,)
+INSERT INTO actors (movie_id, character, actor_name)
 VALUES (2, "Michael Cane", "Alfred");
 
-INSERT INTO actors (movie_id, character, actor_name,)
+INSERT INTO actors (movie_id, character, actor_name)
 VALUES (2, "Maggie Gyllenhaal", "Rachel Dawes");
 
-INSERT INTO actors (movie_id, character, actor_name,)
+INSERT INTO actors (movie_id, character, actor_name)
 VALUES (3, "Christian Bale", "Bruce Wayne");
 
-INSERT INTO actors (movie_id, character, actor_name,)
+INSERT INTO actors (movie_id, character, actor_name)
 VALUES (3, "Tom Hardy", "Bane");
 
-INSERT INTO actors (movie_id, character, actor_name,)
+INSERT INTO actors (movie_id, character, actor_name)
 VALUES (3, "Joseph Gordon-Levitt", "John Blake");
 
-INSERT INTO actors (movie_id, character, actor_name,)
+INSERT INTO actors (movie_id, character, actor_name)
 VALUES (3, "Anne Hathaway", "Selina Kyle");
 
 INSERT INTO studios (studio)
@@ -196,7 +197,7 @@ SELECT movie_title, year, studio
 FROM movies
 INNER JOIN studios
 ON movies.studio_id = studios.id
-ORDER BY year DESC
+ORDER BY year ASC
 ;
 
 -- Prints a header for the cast output
@@ -208,3 +209,10 @@ ORDER BY year DESC
 
 -- The SQL statement for the cast output
 -- TODO!
+
+SELECT movie_title, character, actor_name
+FROM movies
+INNER JOIN actors
+ON movies.id = actors.movie_id
+ORDER BY movie_title ASC, actor_name DESC
+;
