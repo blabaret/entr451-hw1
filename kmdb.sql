@@ -98,7 +98,7 @@
 -- Turns column mode on but headers off
 .mode column
 .headers off
-.width 20 20 20 20
+.width 30 30 30 30
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
@@ -114,8 +114,8 @@ CREATE TABLE movies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     movie_title TEXT,
     year INTEGER,
-    rating text,
-    studio_id text
+    rating TEXT,
+    studio_id TEXT
 );
 
 CREATE TABLE actors (
@@ -159,6 +159,9 @@ INSERT INTO actors (movie_id, character, actor_name)
 VALUES (1, "Gary Oldman", "Commissioner Gordon");
 
 INSERT INTO actors (movie_id, character, actor_name)
+VALUES (2, "Christian Bale", "Bruce Wayne");
+
+INSERT INTO actors (movie_id, character, actor_name)
 VALUES (2, "Heath Ledger", "Joker");
 
 INSERT INTO actors (movie_id, character, actor_name)
@@ -174,6 +177,9 @@ INSERT INTO actors (movie_id, character, actor_name)
 VALUES (3, "Christian Bale", "Bruce Wayne");
 
 INSERT INTO actors (movie_id, character, actor_name)
+VALUES (3, "Gary Oldman", "Commissioner Gordon");
+
+INSERT INTO actors (movie_id, character, actor_name)
 VALUES (3, "Tom Hardy", "Bane");
 
 INSERT INTO actors (movie_id, character, actor_name)
@@ -181,6 +187,7 @@ VALUES (3, "Joseph Gordon-Levitt", "John Blake");
 
 INSERT INTO actors (movie_id, character, actor_name)
 VALUES (3, "Anne Hathaway", "Selina Kyle");
+
 
 INSERT INTO studios (studio)
 VALUES ("Warner Bros.");
@@ -214,5 +221,5 @@ SELECT movie_title, character, actor_name
 FROM movies
 INNER JOIN actors
 ON movies.id = actors.movie_id
-ORDER BY movie_title ASC, actor_name DESC
+ORDER BY movie_title ASC
 ;
